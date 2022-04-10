@@ -10,7 +10,8 @@ pipeline {
     stages {
         stage('Git') {
             steps {
-                git branch: 'main', credentialsId: '57d99371-2551-4ad7-aea0-b66e215ace20', url: 'https://github.com/sivasankardevops/Jenkins-terraform-setup.git'
+                git branch: 'main', credentialsId: 'Githubsiva', url: 'https://github.com/sivasankardevops/practice.git'
+            
             }
         }    
     }
