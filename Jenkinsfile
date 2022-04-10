@@ -24,13 +24,13 @@ pipeline {
         //}
         stage('Docker Build') {
             steps {
-                sh 'docker build -t siva12:{env.GIT_COMMIT_SHORT}-${BUILD_NUMBER} .'
+                sh 'docker build -t siva12:${env.GIT_COMMIT_SHORT}-${BUILD_NUMBER} .'
             
             }
         }
         stage('Docker Run') {
             steps {
-                sh 'docker run -it -d -p 83:80  --name siva12 siva12:{env.GIT_COMMIT_SHORT}-${BUILD_NUMBER}'
+                sh 'docker run -it -d -p 83:80  --name siva12 siva12:${env.GIT_COMMIT_SHORT}-${BUILD_NUMBER}'
             
             }
         }
