@@ -38,7 +38,7 @@ pipeline {
         stage('Docker Image remove') {
             steps {
                 sh 'docker ps -a'
-                //sh 'docker rmi rvsivadocker/srivani:${GIT_COMMIT_SHORT}-${BUILD_NUMBER}'
+                sh 'docker rm -f siva'
             
             }
         }
