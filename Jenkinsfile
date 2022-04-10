@@ -38,7 +38,7 @@ pipeline {
         stage('Docker Image remove') {
             steps {
                 sh 'docker ps -a'
-                //sh 'docker rm -f siva'
+                sh 'docker rm -f siva'
             
             }
         }
