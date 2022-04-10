@@ -17,13 +17,13 @@ pipeline {
         } 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t siva11:latest .'
+                sh 'docker build -t siva111:latest .'
             
             }
         }
         stage('Docker Run') {
             steps {
-                sh 'docker run -it -d -p 81:80  --name siva11 siva11:latest'
+                sh 'docker run -it -d -p 82:80  --name siva111 siva111:latest'
             
             }
         }
