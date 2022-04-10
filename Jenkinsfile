@@ -14,6 +14,12 @@ pipeline {
                 git branch: 'main', credentialsId: 'Githubsiva', url: 'https://github.com/sivasankardevops/practice.git'
             
             }
-        }    
+        } 
+        stage('Docker') {
+            steps {
+                sh 'docker images'
+            
+            }
+        }
     }
 }
