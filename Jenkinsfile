@@ -15,13 +15,13 @@ pipeline {
             
             }
         } 
-        stage('Docker stop') {
-            steps {
+        //stage('Docker stop') {
+            //steps {
                 //sh 'docker rm -f siva12'
                 //sh 'docker rmi siva12:latest'
             
-            }
-        }
+           // }
+        //}
         stage('Docker Build') {
             steps {
                 sh 'docker build -t siva12:${BUILD_NUMBER} .'
