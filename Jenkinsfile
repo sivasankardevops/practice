@@ -11,14 +11,19 @@ pipeline {
     stages {
         stage('Git') {
             steps {
-                git branch: 'main', credentialsId: 'Githubsiva', url: 'https://github.com/sivasankardevops/practice.git'
+               git branch: 'main', credentialsId: 'Githubsiva', url: 'https://github.com/sivasankardevops/practice.git'
             
             }
         } 
-        stage('Docker') {
+        stage('Docker Build') {
             steps {
-                sh 'docker rm siva1 siva'
-                sh 'docker rmi siva:latest siva1:latest'
+                sh 'docker build -t siva11:latest .'
+            
+            }
+        }
+        stage('Docker Run') {
+            steps {
+                sh 'docker run -it -d -p 81:80  --name siva11 siva11:latest'
             
             }
         }
