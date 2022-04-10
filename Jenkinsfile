@@ -15,13 +15,13 @@ pipeline {
             
             }
         } 
-        //stage('Docker stop') {
-          //  steps {
-            //    sh 'docker rm -f siva12'
-              //  sh 'docker rmi siva12:${GIT_COMMIT_SHORT}-${BUILD_NUMBER}'
+        stage('Docker stop') {
+            steps {
+                sh 'docker rm -f siva12'
+                sh 'docker rmi rvsivadocker/srivani:${GIT_COMMIT_SHORT}-${BUILD_NUMBER}'
             
-          // }
-        //}
+            }
+        }
         stage('Docker Build') {
             steps {
                 sh 'docker build -t rvsivadocker/srivani:${GIT_COMMIT_SHORT}-${BUILD_NUMBER} .'
