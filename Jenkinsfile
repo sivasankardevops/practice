@@ -45,6 +45,7 @@ pipeline {
         stage('Docker Run') {
             steps {
                 sh 'docker run -it -d -p 83:80  --name siva rvsivadocker/srivani:${GIT_COMMIT_SHORT}-${BUILD_NUMBER}'
+                sh 'echo "Build success"'
             
             }
         }
