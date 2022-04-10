@@ -17,7 +17,8 @@ pipeline {
         } 
         stage('Docker') {
             steps {
-                sh 'docker ps -a'
+                sh 'docker rm siva1 siva'
+                sh 'docker rmi siva:latest siva1:latest'
             
             }
         }
