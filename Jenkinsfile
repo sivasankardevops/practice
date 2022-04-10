@@ -17,8 +17,8 @@ pipeline {
         } 
         stage('Docker stop') {
             steps {
-                sh 'docker rm -f siva12'
-                sh 'docker rmi siva12:latest'
+                //sh 'docker rm -f siva12'
+                //sh 'docker rmi siva12:latest'
             
             }
         }
