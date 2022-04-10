@@ -24,13 +24,13 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh 'docker build -t siva12:latest .'
+                sh 'docker build -t siva12:${env.BUILD_NUMBER} .'
             
             }
         }
         stage('Docker Run') {
             steps {
-                sh 'docker run -it -d -p 83:80  --name siva12 siva12:latest'
+                sh 'docker run -it -d -p 83:80  --name siva12 siva12:${env.BUILD_NUMBER}'
             
             }
         }
