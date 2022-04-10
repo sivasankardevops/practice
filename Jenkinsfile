@@ -22,6 +22,13 @@ pipeline {
             
             }
         }
+          stage('Docker stop') {
+            steps {
+                sh 'docker rm -f siva12'
+                //sh 'docker rmi rvsivadocker/srivani:${GIT_COMMIT_SHORT}-${BUILD_NUMBER}'
+            
+            }
+        }
         stage('Docker login') {
             steps {
                 sh 'docker login -u rvsivadocker -p Sankar@1993'
@@ -35,9 +42,9 @@ pipeline {
             }
         }
 
-        stage('Docker stop') {
+        stage('Docker Image remove') {
             steps {
-                sh 'docker rm -f siva12'
+                //sh 'docker rm -f siva12'
                 sh 'docker rmi rvsivadocker/srivani:${GIT_COMMIT_SHORT}-${BUILD_NUMBER}'
             
             }
