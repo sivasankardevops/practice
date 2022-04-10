@@ -18,19 +18,31 @@ pipeline {
         stage('Docker stop') {
             steps {
                 sh 'docker rm -f siva12'
-                //sh 'docker rmi siva12:latest'
+                sh 'docker rmi siva12:${GIT_COMMIT_SHORT}-${BUILD_NUMBER}'
             
            }
         }
         stage('Docker Build') {
             steps {
-                sh 'docker build -t siva12:${GIT_COMMIT_SHORT}-${BUILD_NUMBER} .'
+                sh 'docker build -t rvsivadocker/srivani:${GIT_COMMIT_SHORT}-${BUILD_NUMBER} .'
+            
+            }
+        }
+        stage('Docker login') {
+            steps {
+                sh 'docker login -u rvsivadocker -p Sankar@1993'
+            
+            }
+        }
+        stage('Docker Push') {
+            steps {
+                sh 'docker push rvsivadocker/srivani:${GIT_COMMIT_SHORT}-${BUILD_NUMBER}'
             
             }
         }
         stage('Docker Run') {
             steps {
-                sh 'docker run -it -d -p 83:80  --name siva12 siva12:${GIT_COMMIT_SHORT}-${BUILD_NUMBER}'
+                sh 'docker run -it -d -p 83:80  --name siva12 rvsivadocker/srivani:${GIT_COMMIT_SHORT}-${BUILD_NUMBER}'
             
             }
         }
