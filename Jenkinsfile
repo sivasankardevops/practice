@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label 'srivani'}
     
     environment {
     GIT_COMMIT_SHORT = sh(
